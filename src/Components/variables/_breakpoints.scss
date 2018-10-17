@@ -1,0 +1,40 @@
+@import './variables';
+
+$mobile-max-width: 576px;
+$tablet-min-width: 577px;
+$tablet-max-width: 992px;
+
+$space-between: 10px;
+$three-packages-in-row: $package-width * 3+$space-between * 3;
+$two-packages-in-row: $package-width * 2+$space-between * 3;
+$one-package-in-row: $two-packages-in-row - 1px;
+
+@mixin for-one-package {
+  @media (max-width: $one-package-in-row) {
+    @content;
+  }
+}
+
+@mixin for-two-packages {
+  @media (min-width: $two-packages-in-row) {
+    @content;
+  }
+}
+
+@mixin for-three-packages {
+  @media (min-width: $three-packages-in-row) {
+    @content;
+  }
+}
+
+@mixin for-tablet {
+  @media (min-width: $tablet-min-width) and (max-width: $tablet-max-width) {
+    @content;
+  }
+}
+
+@mixin for-mobile {
+  @media (max-width: $mobile-max-width) {
+    @content;
+  }
+}

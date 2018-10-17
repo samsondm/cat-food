@@ -1,0 +1,16 @@
+.centering-outer {
+  display: table;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+
+.centering-middle {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.centering-inner {
+  margin-left: auto;
+  margin-right: auto;
+}

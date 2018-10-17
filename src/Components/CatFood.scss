@@ -1,0 +1,55 @@
+@import './variables/breakpoints';
+
+@function stock-padding($package-count: $packages-desktop) {
+  @return calc((100% - #{$package-count} * #{$package-width}) / (#{$package-count} + 1) / 2);
+}
+
+.cat-food {
+  width: 100%;
+  max-width: $cat-food-width;
+  min-height: $cat-food-height;
+  padding-top: 36px;
+  padding-bottom: 36px;
+
+  &__header {
+    color: #ffffff;
+    font-family: 'Exo2.0-Thin', sans-serif;
+    font-size: 36px;
+    font-style: normal;
+    font-stretch: normal;
+    font-weight: 100;
+    line-height: 48px;
+    text-align: center;
+    text-transform: none;
+    text-decoration: none;
+    letter-spacing: 0px;
+    text-shadow: 0px 1px 1px #000000;
+  }
+
+  &__stock {
+    width: 100%;
+    display: flex;
+    flex: 1 1 100%;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    width: $stock-width;
+    height: $stock-height;
+    padding: 0;
+
+    @include for-two-packages {
+      padding: 0 stock-padding($packages-tablet);
+    }
+
+    @include for-one-package {
+      padding: 0 20px;
+    }
+
+    @include for-mobile {
+      padding: 0;
+    }
+
+    @include for-three-packages {
+      padding: 0 stock-padding();
+    }
+  }
+}
